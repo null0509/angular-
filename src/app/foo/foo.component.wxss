@@ -1,0 +1,9 @@
+.bold {
+  font-weight: 800;
+}
+.red {
+  color: red;
+}
+.big {
+  font-size: 50px;
+}

@@ -1,0 +1,66 @@
+<p>foo works!</p>
+<!---
+1.绑定属性  <img src="img"></img>   <p bind-src="img"></p>
+2.绑定事件  <p (click)="save()"></p>    <p on-click="save()"></p>
+3.js表达式  <p>{{ msg }}</p>
+4.*ngFor
+ *ngIf
+ <p [ngSwitch]="">
+    <li *ngSwitchCase="xx"></li>
+ </p>
+-->
+foo页面中的{{message}}
+<button (click)="onSave()">Save</button>
+<button (click)="onSave2($event)">On Save</button>
+<button (click)="onSave3($event,'heloworld')">On Save</button>
+<button (click)="message = '哈哈哈'">内联事件处理</button>
+<button on-click="onSave()">On Save</button>
+
+
+<!--双向绑定的指令 ngModel,使用之前需要在app.module.ts中引入FormsModule 
+  页面变动会触发数据变动 ->事件绑定来完成
+  数据变动会同步更新页面 ->脏检查
+-->
+<input type="text" [(ngModel)]="message">
+
+<h3>复选框</h3>
+<input type="checkbox" [(ngModel)]="seen">
+
+<input type="radio" [value]="0" [(ngModel)]="gender"> 男
+<input type="radio" [value]="1" [(ngModel)]="gender"> 女
+<p>选中了：{{ gender }}</p>
+
+
+<select [(ngModel)]="hobby">
+    <option [value]="0">吃饭</option>
+    <option [value]="1">睡觉</option>
+    <option [value]="2">打豆豆</option>
+</select>
+<p>选中的爱好：{{ hobby }}</p>
+
+<p class="big bold red">p文字</p>
+<p [class]="'big'">p文字2</p>
+<p [class]="['big','bold']">p文字3</p>
+<div [class.big]="true">The class binding is special</div>
+
+<p [ngClass]="{'red':true,'bold':true}">p文字4</p>
+<button [style.background-color]="true ? 'cyan': 'grey'" >Save</button>
+<button [style.backgroundColor]="true ? 'cyan': 'grey'" >Save</button>
+<button [style.font-size.em]="true ? 3 : 1" >Big</button>
+<button [style.font-size.%]="true ? 150 : 50" >Small</button>
+<div [ngStyle]="{'color':'red',backgroundColor:'yellow'}">这是div</div>
+
+
+<h1>{{currentTime | date:'yyyy-MM-dd HH:mm:ss'}}</h1>
+
+<h1>{{123 | currency }}</h1> 
+<h1>{{123 | currency:'￥' }}</h1> 
+
+<h1>{{{name:'jack'} | json}}</h1>
+
+<h1>{{'123.134545'| number}}</h1>
+
+<h1>{{ 'Hello' | uppercase  }} </h1>
+<h1>{{'Hello' | lowercase}} </h1>
+
+<h1>{{'zhangsan' | msgformat}}</h1>

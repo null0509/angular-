@@ -1,0 +1,16 @@
+<!-- <div class="content" role="main">
+  <div class="card highlight-card card-small">
+    <span>{{ title }} app is running!</span>
+    <span>{{count}}是多少</span>
+    <button (click)="increment()">点我加1</button>
+  </div>
+  <app-foo></app-foo>
+  <app-login></app-login>
+  <p appHighlight>Highlight me!</p>
+</div> -->
+
+<a routerLink="/foo" routerLinkActive="active">来到foo</a>
+<a routerLink="/login/5" [queryParams]="{name: 'zhangsan'}" routerLinkActive="active">来到login</a>
+
+<!-- router-outlet类似于vue中的router-view ：作用是用来呈现匹配到的路由的组件信息 -->
+<router-outlet></router-outlet>
